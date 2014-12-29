@@ -20,6 +20,7 @@ Url:		http://qt-project.org/
 Source0:	http://download.qt-project.org/official_releases/qt/%{api}.%{qtminor}/%{version}/submodules/%{qttarballdir}.tar.xz
 BuildRequires:	qt5-qtbase-devel >= %{version}
 BuildRequires:	pkgconfig(Qt5Qml)
+BuildRequires:	pkgconfig(Qt5Quick)
 
 %description
 The Qt Sensors API provides access to sensor hardware via QML and C++
