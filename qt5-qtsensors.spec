@@ -2,7 +2,7 @@
 %define major %api
 
 %define qtminor 4
-%define qtsubminor 0
+%define qtsubminor 1
 
 %define qtsensors %mklibname qt%{api}sensors %{major}
 %define qtsensorsd %mklibname qt%{api}sensors -d
