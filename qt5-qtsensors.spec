@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta rc
+%define beta %nil
 
 %define qtsensors %mklibname qt%{api}sensors %{major}
 %define qtsensorsd %mklibname qt%{api}sensors -d
@@ -12,7 +12,7 @@ Name:		qt5-qtsensors
 Summary:	Qt5 - Sensors component
 Version:	5.5.0
 %if "%{beta}" != ""
-Release:	0.%{beta}.1
+Release:	1.%{beta}.1
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
