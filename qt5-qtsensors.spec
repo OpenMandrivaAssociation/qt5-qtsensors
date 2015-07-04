@@ -1,11 +1,10 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta
+%define beta %nil
 
 %define qtsensors %mklibname qt%{api}sensors %{major}
 %define qtsensorsd %mklibname qt%{api}sensors -d
 
-%define qttarballdir qtsensors-opensource-src-%{version}%{?beta:-%{beta}}
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtsensors
@@ -13,13 +12,15 @@ Summary:	Qt5 - Sensors component
 Version:	5.5.0
 %if "%{beta}" != ""
 Release:	1.%{beta}.1
+%define qttarballdir qtsensors-opensource-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
+%define qttarballdir qtsensors-opensource-src-%{version}
 Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
-Url:		http://qt-project.org/
+Url:		http://www.qt.io
 BuildRequires:	qt5-qtbase-devel >= %{version}
 BuildRequires:	pkgconfig(Qt5Qml)
 BuildRequires:	pkgconfig(Qt5Quick)
