@@ -21,10 +21,13 @@ Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f
 %endif
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
 Url:		http://www.qt.io
-BuildRequires:	qmake5
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Qml)
-BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	qmake5 >= %{version}
+BuildRequires:	pkgconfig(Qt5Core) >= %{version}
+BuildRequires:	pkgconfig(Qt5Gui) >= %{version}
+BuildRequires:	pkgconfig(Qt5Qml) >= %{version}
+BuildRequires:	pkgconfig(Qt5Quick) >= %{version}
+BuildRequires:	pkgconfig(Qt5Widgets) >= %{version}
+BuildRequires:	pkgconfig(Qt5Test) >= %{version}
 
 %description
 The Qt Sensors API provides access to sensor hardware via QML and C++
