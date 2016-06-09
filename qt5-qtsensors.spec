@@ -9,9 +9,9 @@
 
 Name:		qt5-qtsensors
 Summary:	Qt5 - Sensors component
-Version:	5.6.0
+Version:	5.6.1
 %if "%{beta}" != ""
-Release:	1.%{beta}.1
+Release:	0.%{beta}.1
 %define qttarballdir qtsensors-opensource-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
@@ -66,8 +66,7 @@ Development files for the QtSensors library.
 %{_qt5_libdir}/cmake/Qt%{api}Sensors
 %{_qt5_libdir}/pkgconfig/Qt%{api}Sensors.pc
 %{_qt5_prefix}/mkspecs/modules/*.pri
-%{_qt5_exampledir}/sensors
-%{_qt5_exampledir}/qtsensors
+%{_qt5_exampledir}/*
 
 #----------------------------------------------------------------------------
 
