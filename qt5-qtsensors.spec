@@ -9,7 +9,7 @@
 
 Name:		qt5-qtsensors
 Summary:	Qt5 - Sensors component
-Version:	5.6.1
+Version:	5.6.2
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
 %define qttarballdir qtsensors-opensource-src-%{version}-%{beta}
