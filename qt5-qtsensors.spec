@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta %nil
+%define beta %{nil}
 
 %define qtsensors %mklibname qt%{api}sensors %{major}
 %define qtsensorsd %mklibname qt%{api}sensors -d
@@ -9,7 +9,7 @@
 
 Name:		qt5-qtsensors
 Summary:	Qt5 - Sensors component
-Version:	5.6.2
+Version:	5.8.0
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
 %define qttarballdir qtsensors-opensource-src-%{version}-%{beta}
@@ -23,6 +23,7 @@ License:	LGPLv2 with exceptions or GPLv3 with exceptions
 Url:		http://www.qt.io
 BuildRequires:	qmake5 >= %{version}
 BuildRequires:	pkgconfig(Qt5Core) >= %{version}
+BuildRequires:	pkgconfig(Qt5DBus) >= %{version}
 BuildRequires:	pkgconfig(Qt5Gui) >= %{version}
 BuildRequires:	pkgconfig(Qt5Qml) >= %{version}
 BuildRequires:	pkgconfig(Qt5Quick) >= %{version}
