@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta rc3
+%define beta %{nil}
 
 %define qtsensors %mklibname qt%{api}sensors %{major}
 %define qtsensorsd %mklibname qt%{api}sensors -d
@@ -16,7 +16,7 @@ Release:	0.%{beta}.1
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%(echo %{beta} |sed -e "s,1$,,")/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
-%define qttarballdir qtsensors-opensource-src-%{version}
+%define qttarballdir qtsensors-everywhere-src-%{version}
 Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
