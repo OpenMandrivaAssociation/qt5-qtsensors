@@ -29,6 +29,8 @@ BuildRequires:	pkgconfig(Qt5Qml) >= %{version}
 BuildRequires:	pkgconfig(Qt5Quick) >= %{version}
 BuildRequires:	pkgconfig(Qt5Widgets) >= %{version}
 BuildRequires:	pkgconfig(Qt5Test) >= %{version}
+# For the Provides: generator
+BuildRequires:	cmake >= 3.11.0-1
 
 %description
 The Qt Sensors API provides access to sensor hardware via QML and C++
