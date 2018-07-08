@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   qtsensors-opensource-src-5.9.2.tar.xz: 69e6efe272923a0a9074f251d90bd1a7692c4243
+sources:
+  qtsensors-opensource-src-5.9.6.tar.xz: 8602d6d802298e43b798c3ea0142958bb5747b21
