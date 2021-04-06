@@ -9,16 +9,18 @@
 
 Name:		qt5-qtsensors
 Summary:	Qt5 - Sensors component
-Version:	5.15.2
+Version:	5.15.3
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
 %define qttarballdir qtsensors-everywhere-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
-%define qttarballdir qtsensors-everywhere-src-%{version}
-Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+%define qttarballdir qtsensors-everywhere-src-5.15.2
+Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/5.15.2/submodules/%{qttarballdir}.tar.xz
 %endif
+# From KDE
+Patch1000:	0001-Bump-version.patch
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
 Url:		http://www.qt.io
 BuildRequires:	qmake5 >= %{version}
@@ -75,6 +77,7 @@ Development files for the QtSensors library.
 
 %prep
 %autosetup -n %qttarballdir -p1
+%{_qt5_prefix}/bin/syncqt.pl -version %{version}
 
 %build
 %qmake_qt5
