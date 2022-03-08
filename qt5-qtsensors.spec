@@ -15,12 +15,12 @@ Release:	0.%{beta}.1
 %define qttarballdir qtsensors-everywhere-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
-Release:	1
-%define qttarballdir qtsensors-everywhere-src-5.15.2
-Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/5.15.2/submodules/%{qttarballdir}.tar.xz
+Release:	2
+%define qttarballdir qtsensors-everywhere-opensource-src-%{version}
+Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 # From KDE
-Patch1000:	0001-Bump-version.patch
+# [currently no patches required]
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
 Url:		http://www.qt.io
 BuildRequires:	qmake5 >= %{version}
@@ -76,7 +76,7 @@ Development files for the QtSensors library.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -n %qttarballdir -p1
+%autosetup -n %(echo %qttarballdir|sed -e 's,-opensource,,') -p1
 %{_qt5_prefix}/bin/syncqt.pl -version %{version}
 
 %build
@@ -96,6 +96,3 @@ for prl_file in libQt5*.prl ; do
   fi
 done
 popd
-
-# .la and .a files, die, die, die.
-rm -f %{buildroot}%{_qt5_libdir}/lib*.la
