@@ -22,7 +22,7 @@ Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f
 # From KDE
 # [currently no patches required]
 License:	LGPLv2 with exceptions or GPLv3 with exceptions
-Url:		http://www.qt.io
+Url:		https://www.qt.io
 BuildRequires:	qmake5 >= %{version}
 BuildRequires:	pkgconfig(Qt5Core) >= %{version}
 BuildRequires:	pkgconfig(Qt5DBus) >= %{version}
